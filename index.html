@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energy Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div>
+        <div class="brand">Energy Companion</div>
+        <p class="brand-copy">Simple guidance to reduce household energy and water use without overwhelm.</p>
+      </div>
+      <nav class="nav-tabs" aria-label="Main navigation">
+        <button class="nav-tab active" data-target="dashboard">Dashboard</button>
+        <button class="nav-tab" data-target="insights">Insights</button>
+        <button class="nav-tab" data-target="tips">Tips</button>
+        <button class="nav-tab" data-target="challenge">Challenge</button>
+      </nav>
+    </header>
+
+    <main class="content-grid">
+      <section class="panel-view active" id="dashboard">
+        <article class="hero-card dashboard-layout">
+          <section class="intro-panel">
+            <div>
+              <p class="eyebrow">A calmer home dashboard</p>
+              <h1 class="hero-title">One small action at a time.</h1>
+              <p class="hero-copy">
+                We highlight only the most helpful next step so your household can save electricity and water
+                without needing to decode lots of charts.
+              </p>
+            </div>
+
+            <div class="goal-switcher" aria-label="Choose household focus">
+              <button class="goal-chip active" data-goal="balanced">Balanced</button>
+              <button class="goal-chip" data-goal="electricity">Save electricity</button>
+              <button class="goal-chip" data-goal="water">Save water</button>
+            </div>
+          </section>
+
+          <section class="summary-grid" aria-label="Household summary cards">
+            <article class="summary-card highlight">
+              <span class="card-label">Today's focus</span>
+              <strong class="card-value" id="focusMetric">18 kWh</strong>
+              <p class="card-note" id="focusNote">A bit above your usual weekday use.</p>
+            </article>
+
+            <article class="summary-card">
+              <span class="card-label">Gentle alert</span>
+              <strong class="card-value" id="statusText">Slightly above average</strong>
+              <p class="card-note" id="statusNote">No urgent problem — one small tweak should help.</p>
+            </article>
+
+            <article class="summary-card">
+              <span class="card-label">Best next action</span>
+              <strong class="card-value action-text" id="actionText">Set AC to 24°C tonight</strong>
+              <p class="card-note" id="actionNote">Expected monthly saving: $12.</p>
+            </article>
+
+            <article class="summary-card success">
+              <span class="card-label">This week</span>
+              <strong class="card-value" id="weekText">On track 4/7 days</strong>
+              <p class="card-note" id="weekNote">Consistency matters more than perfect results.</p>
+            </article>
+          </section>
+
+          <section class="support-grid">
+            <article class="support-card">
+              <h2>Why this feels simple</h2>
+              <ul class="support-list">
+                <li>Only one recommendation is shown at a time.</li>
+                <li>Numbers are translated into plain-language insights.</li>
+                <li>Challenges stay light and realistic for busy households.</li>
+              </ul>
+            </article>
+
+            <article class="support-card reassurance">
+              <h2>Your household goal</h2>
+              <p id="goalSummary">
+                Keep bills steady while gently improving both electricity and water habits.
+              </p>
+              <div class="mini-stat-row">
+                <div>
+                  <span>Estimated bill</span>
+                  <strong id="billEstimate">$118 / month</strong>
+                </div>
+                <div>
+                  <span>Confidence</span>
+                  <strong id="confidenceText">Low effort, high impact</strong>
+                </div>
+              </div>
+            </article>
+          </section>
+        </article>
+      </section>
+
+      <section class="panel-view" id="insights">
+        <article class="hero-card insights-card">
+          <div class="subsection">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Simple pattern view</p>
+                <h2 id="insightsTitle">Weekly electricity usage</h2>
+              </div>
+              <p class="section-aside" id="insightsSummary">Friday spiked because cooling ran longer than usual.</p>
+            </div>
+
+            <div class="chart-card" aria-label="Weekly household usage bar chart">
+              <div class="chart-grid">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="bar-chart" id="barChart"></div>
+            </div>
+          </div>
+
+          <div class="insight-lower-grid">
+            <section class="subsection users-block">
+              <h2 id="driversTitle">Top contributors</h2>
+              <ul class="rank-list" id="driverList"></ul>
+            </section>
+
+            <section class="subsection insight-explainer">
+              <h2>What this means</h2>
+              <div class="explain-card">
+                <p id="explainText">
+                  Your household is doing fine overall. One repeated habit is creating most of the increase,
+                  so a small change should be enough.
+                </p>
+                <div class="plain-language-tip">
+                  <span>Plain-language suggestion</span>
+                  <strong id="plainTip">Focus on cooling or hot water first before changing everything else.</strong>
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel-view" id="tips">
+        <article class="hero-card tips-card">
+          <div class="section-header centered">
+            <div>
+              <p class="eyebrow">Quick wins</p>
+              <div class="section-title">Low-effort tips for today</div>
+            </div>
+            <p class="section-aside">Each tip is designed to feel doable in under a minute to start.</p>
+          </div>
+
+          <div class="tips-grid" id="tipsGrid"></div>
+
+          <div class="routine-card">
+            <h2>Build one easier routine</h2>
+            <p id="routineText">Tonight, start with one switch-off habit after dinner and repeat it for three days.</p>
+            <div class="routine-tags" id="routineTags"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel-view" id="challenge">
+        <article class="hero-card challenge-card">
+          <div class="section-header centered">
+            <div>
+              <p class="eyebrow">Weekly challenge</p>
+              <div class="section-title">Progress without pressure</div>
+            </div>
+            <p class="section-aside">Complete the challenge on most days — not every day — and it still counts.</p>
+          </div>
+
+          <div class="challenge-hero">
+            <div class="challenge-icon" id="challengeIcon">🚿</div>
+            <div>
+              <div class="challenge-copy" id="challengeTitle">Reduce shower time by 1 minute</div>
+              <p class="challenge-subcopy" id="challengeCopy">A small cut in shower time can save water without disrupting your routine.</p>
+            </div>
+          </div>
+
+          <div class="progress-copy"><strong>Progress:</strong> <span id="progressText">3 out of 5 days</span></div>
+          <div class="progress-track" aria-label="Challenge progress">
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-steps" id="progressSteps"></div>
+          </div>
+
+          <div class="challenge-summary-row">
+            <div class="summary-pill">
+              <span>Estimated savings</span>
+              <strong id="savingsText">120L of water saved</strong>
+            </div>
+            <div class="summary-pill">
+              <span>Difficulty</span>
+              <strong id="difficultyText">Easy to fit into a busy week</strong>
+            </div>
+          </div>
+
+          <div class="mini-challenges">
+            <article class="mini-challenge-card">
+              <span>Backup idea</span>
+              <strong id="backupChallenge">Run one cold-water wash this week</strong>
+            </article>
+            <article class="mini-challenge-card">
+              <span>Motivation</span>
+              <strong id="motivationText">Small habits beat big plans you can't maintain.</strong>
+            </article>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
