@@ -1,665 +1,451 @@
-:root {
-  --blue: #2878bd;
-  --blue-dark: #1f4267;
-  --blue-soft: #5c9bd4;
-  --bg: #eef2f7;
-  --surface: #f6f8fc;
-  --card: #ffffff;
-  --line: #d9e0ea;
-  --text: #2d4a71;
-  --muted: #6e8099;
-  --shadow: 0 10px 26px rgba(32, 57, 90, 0.12);
-  --success: #56bb63;
-  --success-soft: #edf8ef;
-  --warning: #f0b93d;
-  --warning-soft: #fff8e6;
+.wrapper{
+  position: relative;   
+  min-height: 200px; 
+  clear: both;
+  margin: 25px 0;
 }
 
-* {
-  box-sizing: border-box;
+.tab {
+  float: left;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #f3f6fb 0%, #e9eef7 100%);
-  color: var(--text);
-}
-
-button {
-  font: inherit;
-}
-
-.page-shell {
-  max-width: 1180px;
-  margin: 38px auto;
-  padding: 0 18px 30px;
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  background: var(--blue);
-  color: #fff;
-  border-radius: 10px 10px 0 0;
-  padding: 16px 24px;
-  box-shadow: var(--shadow);
-}
-
-.brand {
-  font-size: 1.9rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-.brand-copy {
-  margin: 4px 0 0;
-  max-width: 520px;
-  font-size: 0.98rem;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.nav-tabs {
-  display: flex;
-  gap: 14px;
-}
-
-.nav-tab {
-  border: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.96);
-  padding: 8px 4px;
-  font-weight: 600;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease, opacity 0.2s ease;
-}
-
-.nav-tab:hover,
-.nav-tab.active {
-  border-color: rgba(255, 255, 255, 0.9);
-}
-
-.content-grid {
-  background: rgba(215, 222, 233, 0.45);
-  border-radius: 0 0 12px 12px;
-  box-shadow: var(--shadow);
-  min-height: 640px;
-  padding: 20px;
-}
-
-.panel-view {
-  display: none;
-}
-
-.panel-view.active {
-  display: block;
-}
-
-.hero-card {
-  max-width: 980px;
-  margin: 0 auto;
-  background: rgba(246, 248, 252, 0.96);
-  border-radius: 14px;
-  padding: 28px;
-  box-shadow: inset 0 0 0 1px rgba(196, 207, 221, 0.55), 0 4px 16px rgba(42, 70, 102, 0.06);
-}
-
-.dashboard-layout,
-.insights-card,
-.tips-card,
-.challenge-card {
-  display: grid;
-  gap: 24px;
-}
-
-.intro-panel,
-.support-grid,
-.section-header,
-.challenge-hero,
-.challenge-summary-row,
-.mini-stat-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: var(--blue-soft);
-}
-
-.hero-title,
-.section-title,
-.subsection h2 {
-  margin: 0;
-  color: var(--blue-dark);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-.hero-title {
-  font-size: 2.6rem;
-}
-
-.hero-copy,
-.section-aside,
-.challenge-subcopy,
-.explain-card p,
-.support-card p,
-.support-list,
-.routine-card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.hero-copy {
-  max-width: 680px;
-  margin-top: 10px;
-  font-size: 1.05rem;
-}
-
-.goal-switcher {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-self: flex-start;
-}
-
-.goal-chip {
-  border: 1px solid rgba(40, 120, 189, 0.18);
-  background: #fff;
-  color: var(--blue);
-  padding: 12px 16px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: all 0.2s ease;
-}
-
-.goal-chip:hover,
-.goal-chip.active {
-  background: var(--blue);
-  color: #fff;
-  border-color: var(--blue);
-}
-
-.summary-grid,
-.tips-grid,
-.insight-lower-grid,
-.mini-challenges {
-  display: grid;
-  gap: 18px;
-}
-
-.summary-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.summary-card,
-.support-card,
-.chart-card,
-.users-block,
-.insight-explainer,
-.tip-card,
-.routine-card,
-.mini-challenge-card {
-  background: var(--card);
-  border-radius: 14px;
-  padding: 18px;
-  border: 1px solid rgba(212, 219, 229, 0.85);
-}
-
-.summary-card {
-  display: grid;
-  gap: 10px;
-  align-content: start;
-}
-
-.summary-card.highlight {
-  background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
-}
-
-.summary-card.success {
-  background: linear-gradient(180deg, #ffffff 0%, #f0faef 100%);
-}
-
-.card-label,
-.summary-pill span,
-.mini-challenge-card span,
-.plain-language-tip span,
-.routine-tags span,
-.mini-stat-row span {
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-}
-
-.card-value {
-  font-size: 1.5rem;
-  line-height: 1.3;
-  color: var(--blue-dark);
-}
-
-.action-text {
-  font-size: 1.35rem;
-}
-
-.card-note {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.support-grid,
-.insight-lower-grid,
-.mini-challenges {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.support-card h2,
-.subsection h2,
-.routine-card h2 {
-  margin: 0 0 12px;
-  font-size: 1.35rem;
-}
-
-.support-list {
-  padding-left: 18px;
-}
-
-.support-list li + li {
-  margin-top: 10px;
-}
-
-.reassurance {
-  background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
-}
-
-.mini-stat-row {
-  margin-top: 16px;
-}
-
-.mini-stat-row div {
-  display: grid;
-  gap: 6px;
-}
-
-.mini-stat-row strong,
-.summary-pill strong,
-.mini-challenge-card strong,
-.plain-language-tip strong {
-  color: var(--blue-dark);
-  font-size: 1.05rem;
-}
-
-.section-header {
-  align-items: end;
-}
-
-.section-header.centered {
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.section-title {
-  font-size: 2rem;
-}
-
-.section-aside {
-  max-width: 340px;
-}
-
-.chart-card {
+.tab label {
+  background: #eee; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  margin-left: -1px; 
   position: relative;
-  overflow: hidden;
+  left: 1px; 
 }
 
-.chart-grid {
-  position: absolute;
-  inset: 14px 14px 34px;
-  display: grid;
-  align-content: space-between;
-  pointer-events: none;
+.tab [type=radio] {
+  display: none;   
 }
 
-.chart-grid span {
-  display: block;
-  border-top: 1px solid #dbe4ef;
+.content{
+    width: 2000px;
+    height: 1000px;
+    display: grid;
+    grid-template-columns: repeat(50, 40px);
+    grid-template-rows: repeat(50, 20px);
+    position: absolute;
+    top: 28px;
+    left: 0;
+    background: white;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    border: 1px solid #ccc;
 }
 
-.bar-chart {
-  height: 230px;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 14px;
-  align-items: end;
-  position: relative;
-  z-index: 1;
-  padding-top: 14px;
+/* Title */
+.title{
+    width: 2000px;
+    height:133px;
+    align-content: center;
+    grid-column: 1/50;
+    grid-row: 1;
+
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+
 }
 
-.bar-group {
-  display: grid;
-  gap: 10px;
-  justify-items: center;
+.title img{
+    width: 200px;
+    height: auto;
+    grid-column: 2;
 }
 
-.bar {
-  width: 100%;
-  max-width: 38px;
-  background: linear-gradient(180deg, #5aa6e6 0%, #2f7ec4 100%);
-  border-radius: 4px 4px 0 0;
-  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.16);
-}
+/* Tab changing buttons*/
 
-.bar-group span {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--text);
-}
+.tabs{
+    grid-column: 1/5;
+    grid-row: 8;
 
-.rank-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 14px;
-}
-
-.rank-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.05rem;
-  color: var(--text);
-}
-
-.rank-list li strong {
-  margin-right: auto;
-}
-
-.rank {
-  width: 30px;
-  height: 30px;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 999px;
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.rank.green { background: #5cbc60; }
-.rank.yellow { background: #e9b336; }
-.rank.blue { background: #3680c7; }
-
-.explain-card {
-  display: grid;
-  gap: 16px;
-}
-
-.plain-language-tip {
-  display: grid;
-  gap: 8px;
-  padding: 14px;
-  border-radius: 12px;
-  background: var(--bg);
-}
-
-.tips-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.tip-card {
-  display: grid;
-  gap: 14px;
-}
-
-.tip-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.tip-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #e6f0fb 0%, #d8e8f8 100%);
-  display: grid;
-  place-items: center;
-  font-size: 1.55rem;
-  box-shadow: inset 0 0 0 1px rgba(71, 124, 180, 0.12);
-}
-
-.tip-title {
-  margin: 0;
-  font-size: 1.12rem;
-  color: var(--blue-dark);
-}
-
-.tip-meta {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.tip-badge,
-.routine-tags span {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--bg);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.routine-card {
-  display: grid;
-  gap: 14px;
-}
-
-.routine-tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.challenge-card {
-  text-align: center;
-}
-
-.challenge-hero {
-  align-items: center;
-}
-
-.challenge-icon {
-  width: 88px;
-  height: 88px;
-  border-radius: 24px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(180deg, #edf6ff 0%, #deefff 100%);
-  font-size: 2.8rem;
-  flex-shrink: 0;
-}
-
-.challenge-copy {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--blue-dark);
-}
-
-.challenge-subcopy {
-  margin-top: 8px;
-}
-
-.progress-copy,
-.savings-copy {
-  font-size: 1.08rem;
-}
-
-.progress-track {
-  position: relative;
-  max-width: 520px;
-  height: 42px;
-  margin: 0 auto;
-  border-radius: 999px;
-  background: #e3e7ec;
-  overflow: hidden;
-}
-
-.progress-fill {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 60%;
-  background: linear-gradient(180deg, #67c36a 0%, #49ab54 100%);
-  border-radius: 999px;
-}
-
-.progress-steps {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  place-items: center;
-  color: #55708f;
-  font-size: 1.3rem;
-  font-weight: 800;
-}
-
-.progress-steps .done {
-  color: #fff;
-}
-
-.challenge-summary-row {
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.summary-pill {
-  min-width: 240px;
-  display: grid;
-  gap: 8px;
-  padding: 16px 18px;
-  background: #fff;
-  border: 1px solid rgba(212, 219, 229, 0.85);
-  border-radius: 14px;
-  text-align: left;
-}
-
-.mini-challenge-card {
-  text-align: left;
-  display: grid;
-  gap: 8px;
-}
-
-@media (max-width: 980px) {
-  .summary-grid,
-  .tips-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .intro-panel,
-  .section-header,
-  .challenge-hero {
+    display:flex;
     flex-direction: column;
-    align-items: flex-start;
-  }
+    justify-content: space-between;
+    height: 150px;
+}
 
-  .section-header.centered {
+.graph-title{
+    grid-column: 7/30;
+    grid-row: 11;
+    font-size:x-large;
+    font-weight: bold;
+}
+
+.legend{
+    grid-column: 7;
+    grid-row: 25;
+
+    width: 70px;
+    height: 50px;
+    display:grid;
+    grid-template-columns: repeat(4, 17.5px);
+    grid-template-rows: repeat(5, 12.5px);
+}
+
+.legend .title{
+    grid-column: 1;
+    grid-row: 1;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.energy-color-label{
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.energy-color-code{
+    background-color: greenyellow;
+    grid-column: 4;
+    grid-row: 3;
+}
+
+.water-color-label{
+    grid-column: 1;
+    grid-row: 5;
+}
+
+.water-color-code{
+    background-color: aqua;
+    grid-column: 4;
+    grid-row: 5;
+}
+
+/* Codes for the Graph */
+/* How to change graph bar: on the selected class that has bar with a number like bar1, bar2 etc. it uses simple math that involves difference between the total grid rows 
+    and the intended filled row for the grid to change the bar sizes*/
+
+.graph{
+    grid-column: 10/30;
+    grid-row: 15/40;
+
+    display:grid;
+    grid-template-columns: repeat(28,1fr);
+    grid-template-rows: repeat(60, 1fr);
+    grid-auto-flow: row dense;
+}
+
+.monday{
+    grid-column:1;
+    grid-row: 60;
+}
+
+.bar1{
+    grid-column: 1;
+    grid-row: 59/calc(60 - (60/5));
+    background-color: greenyellow;
+    width:auto;
+}
+
+.waterbar1{
+    grid-column: 2;
+    grid-row: 59/calc(60 - 30);
+    background-color: aqua;
+}
+
+.tuesday{
+    grid-column: 4;
+    grid-row: 60;
+}
+
+.bar2{
+    grid-column:4;
+    grid-row: 59/calc(60 - 48);
+    background-color: greenyellow;
+    width:auto;
+}
+
+.waterbar2{
+    grid-column: 5;
+    grid-row: 59/calc(60 - 28);
+    background-color: aqua;
+}
+
+.wednesday{
+    grid-column: 7;
+    grid-row: 60;
+}
+
+.bar3{
+    grid-column:7;
+    grid-row: 59/calc(60 - (60/3));
+    background-color: greenyellow;
+    width:auto;
+}
+
+.waterbar3{
+    grid-column: 8;
+    grid-row: 59/calc(60 - 28);
+    background-color: aqua;
+}
+
+.thursday{
+    grid-column: 10;
+    grid-row: 60;
+}
+
+.bar4{
+    grid-column:10;
+    grid-row: 59/calc(60 - (60/4));
+    background-color: greenyellow;
+    width:auto;
+}
+
+.waterbar4{
+    grid-column: 11;
+    grid-row: 59/calc(60 - 16);
+    background-color: aqua;
+}
+
+.friday{
+    grid-column: 13;
+    grid-row: 60;
+}
+
+.bar5{
+    grid-column:13;
+    grid-row: 59/calc(60 - 27);
+    background-color: greenyellow;
+    width:auto;
+}
+
+.waterbar5{
+    grid-column: 14;
+    grid-row: 59/calc(60 - 30);
+    background-color: aqua;
+}
+
+.saturday{
+    grid-column: 16;
+    grid-row: 60;
+}
+
+.bar6{
+    grid-column: 16;
+    grid-row: 59/calc(60 - 11);
+    background-color: greenyellow;
+    width:auto;
+}
+
+.waterbar6{
+    grid-column: 17;
+    grid-row: 59/calc(60 - 30);
+    background-color: aqua;
+}
+
+.sunday{
+    grid-column: 19;
+    grid-row: 60;
+}
+
+.bar7{
+    grid-column: 19;
+    grid-row: 59/calc(60 - 40);
+    background-color: greenyellow;
+    width:auto;
+}
+
+.waterbar7{
+    grid-column: 20;
+    grid-row: 59/calc(60 - 25);
+    background-color: aqua;
+}
+
+/* Basic Time scale buttons for graphs not functional yet*/
+
+.timescale{
+    grid-column: 7;
+    grid-row: 15;
+
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    width: 250px;
+    justify-content: space-between;
+}
+
+
+.setting{
+    width:80px;
+    height: 37.44px;
+    display:flex;
     align-items: center;
-  }
-
-  .section-aside {
-    max-width: none;
-  }
+    grid-column: 30;
+    grid-row: 5;
 }
 
-@media (max-width: 860px) {
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.setting img{
+    width:60px;
+    height: auto;
+} 
 
-  .nav-tabs {
-    flex-wrap: wrap;
-  }
+/* Tab Switching */
 
-  .support-grid,
-  .insight-lower-grid,
-  .mini-challenges {
-    grid-template-columns: 1fr;
-  }
 
-  .hero-title {
-    font-size: 2rem;
-  }
+[type=radio]:checked + label +.content {
+  z-index: 1; /*it raises the content of the tab above other elements so it appears on top.*/
 }
 
-@media (max-width: 640px) {
-  .page-shell {
-    margin: 16px auto;
-    padding: 0 10px 24px;
-  }
+[type=radio]:checked + label {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 2; /*this styles the label of the selected radio button, making it look active or “selected.”*/
+}
 
-  .content-grid,
-  .hero-card {
-    padding: 14px;
-  }
+/* Insight Tab */
 
-  .brand {
-    font-size: 1.45rem;
-  }
+.chart-title{
+    width: 210px;
+    height: 25px;
+    grid-column: 10;
+    grid-row: 8;
+    font-size: x-large;
+}
 
-  .summary-grid,
-  .tips-grid {
-    grid-template-columns: 1fr;
-  }
+/* The codes for pie chart and the displayed words for each slices below */
 
-  .goal-switcher,
-  .nav-tabs,
-  .mini-stat-row,
-  .challenge-summary-row {
-    width: 100%;
-  }
+.pie-chart {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  /* this is basically what makes the "pie" part of the pie chart */
+  background: conic-gradient(
+    #ff6384 0% 42%,    
+    #36a2eb 42% 70%,    
+    #cc65fe 70% 82%,
+    #32CD32 82% 92%,
+    #FFFF00 92% 100%
+  );
 
-  .goal-chip {
-    width: 100%;
-    justify-content: center;
-  }
+  grid-column: 15;
+  grid-row: 12;
 
-  .hero-title,
-  .section-title {
-    font-size: 1.6rem;
-  }
+  display:grid;
+  grid-template-rows: repeat(10, 50px);
+  grid-template-columns: repeat(10, 50px);
+}
 
-  .bar-chart {
-    gap: 8px;
-    height: 180px;
-  }
+/* these are for the words inside each slices of the pie chart */
+#aircon{
+    grid-column: 8;
+    grid-row: 5;
+}
 
-  .bar {
-    max-width: 24px;
-  }
+#water-heat{
+    grid-column: 4;
+    grid-row: 8;
+}
 
-  .progress-track {
-    height: 38px;
-  }
+#fridge{
+    grid-column: 2;
+    grid-row: 6;
+}
+
+#laundry{
+    grid-column: 3;
+    grid-row: 4;
+}
+
+#other{
+    grid-column: 5;
+    grid-row: 3;
+}
+
+/* Usage Info code below here */
+
+/* This below sets up the position and grid structure and size of the Usage Info */
+
+.pie-legend{
+  width: 200px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(10, 17.5px);
+  grid-template-rows: repeat(11, 12.5px);
+  grid-column: 3;
+  grid-row: 23;
+}
+
+.pie-legend .title{
+    grid-column: 1/4;
+    grid-row: 1;
+    font-size: larger;
+    font-weight: bold;
+}
+
+/* these codes below are shows the main content of the usage info which is the percentage of overall uses for each displayed appliances and their color codes */
+
+.aircon{
+    height: 20px;
+    width: 200px;
+    font-size: large;
+    grid-column: 1/4;
+    grid-row: 3;
+}
+
+#aircon-color{
+    background-color: #ff6384;
+    grid-column: 10;
+    grid-row: 3;
+}
+
+.waterheat{
+    height: 20px;
+    width: 200px;
+    font-size: large;
+    grid-column: 1/4;
+    grid-row: 5;
+}
+
+#waterheat-color{
+    background-color: #36a2eb;
+    grid-column: 10;
+    grid-row: 5;
+}
+
+.fridge{
+    height: 20px;
+    width: 200px;
+    font-size: large;
+    grid-column: 1/4;
+    grid-row: 7;
+}
+
+#fridge-color{
+    background-color: #cc65fe;
+    grid-column: 10;
+    grid-row: 7;
+}
+
+.laundry{
+    height: 20px;
+    width: 200px;
+    font-size: large;
+    grid-column: 1/4;
+    grid-row: 9;
+}
+
+#laundry-color{
+    background-color: #32CD32;
+    grid-column: 10;
+    grid-row: 9;
+}
+
+.other{
+    height: 20px;
+    width: 200px;
+    font-size: large;
+    grid-column: 1/4;
+    grid-row: 11;
+}
+
+#other-color{
+    background-color: #FFFF00;
+    grid-column: 10;
+    grid-row: 11;
 }
